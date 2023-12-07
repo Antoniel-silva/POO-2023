@@ -36,9 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var Novaredesocial_1 = require("./Novaredesocial");
+var Perfil_1 = require("./src/Perfil");
+var Postagem_1 = require("./src/Postagem");
+var RedeSocial_1 = require("./src/RedeSocial");
 var readline = require("readline");
-var redeSocial = new Novaredesocial_1.RedeSocial();
+var redeSocial = new RedeSocial_1.RedeSocial();
 var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -62,10 +64,10 @@ function getUserInput(prompt) {
                     console.log("");
                     console.log("Digite uma opção:");
                     console.log("");
-                    console.log('1 - Incluir Perfil       2 - Consultar Perfil      3 - Incluir Postagem\n' +
-                        '4 - Consultar posatgem       5 - Curtir postagem               6 - Descurtir postagem\n' +
-                        '7 - Decrementar Visualizações 8 - Exibir postagens por perfil 9 - Exibir postagens por hashtag\n' +
-                        '10 - Seguir perfil 11 - Deixar de seguir perfil 12 - Listar seguidores    13 - Exibir postagem dos seguidores\n' +
+                    console.log('1 - Incluir Perfil\n2 - Consultar Perfil\n3 - Incluir Postagem\n' +
+                        '4 - Consultar Postagem\n5 - Curtir Postagem\n6 - Descurtir Postagem\n' +
+                        '7 - Decrementar Visualizações\n8 - Exibir postagens por perfil\n9 - Exibir postagens por hashtag\n' +
+                        '10 - Seguir perfil\n11 - Deixar de seguir perfil\n12 - Listar seguidores\n13 - Exibir postagem dos seguidores\n' +
                         '0 - Sair\n');
                     return [4 /*yield*/, getUserInput('Opção: ')];
                 case 1:
@@ -99,7 +101,7 @@ function getUserInput(prompt) {
                     return [4 /*yield*/, getUserInput("Agora digite o email do novo perfil: ")];
                 case 5:
                     emailNovoPerfil = _p.sent();
-                    novoPerfil = new Novaredesocial_1.Perfil(idNovoPerfil, nomeNovoPerfil, emailNovoPerfil, [], [], []);
+                    novoPerfil = new Perfil_1.Perfil(idNovoPerfil, nomeNovoPerfil, emailNovoPerfil, [], [], []);
                     redeSocial.incluirPerfil(novoPerfil);
                     console.log("Opera\u00E7\u00E3o finalizada!");
                     return [3 /*break*/, 30];
@@ -132,7 +134,7 @@ function getUserInput(prompt) {
                     idPostagem = _e.apply(void 0, [_p.sent()]);
                     perfilPostagem = redeSocial.consultarPerfil(idPerfilPostagem);
                     if (perfilPostagem) {
-                        novaPostagem = new Novaredesocial_1.Postagem(idPostagem, // ID fornecida pelo usuário
+                        novaPostagem = new Postagem_1.Postagem(idPostagem, // ID fornecida pelo usuário
                         textoPostagem, 0, 0, new Date(), perfilPostagem);
                         redeSocial.incluirPostagem(novaPostagem);
                         console.log("Nova postagem adicionada com sucesso para o perfil ".concat(perfilPostagem.nome, "."));

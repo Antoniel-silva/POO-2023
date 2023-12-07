@@ -1,3 +1,6 @@
+import { Postagem } from './Postagem';
+import { Perfil } from './Perfil';
+
 export class PostagemAvancada extends Postagem {
     private _hashtags: string[] = []
     private _visualizacoesRestantes: number
@@ -8,55 +11,33 @@ export class PostagemAvancada extends Postagem {
         this._visualizacoesRestantes = visualizacoesRestantes
     }
 
-   get hashtags(): string[]{
-    return this._hashtags
-   }
-
-   get visualizacoesRestantes(): number{
-    return this._visualizacoesRestantes
-   }
-
-   adicionarHashtag(novaHashtag: string): void {
-    if (this.existeHashtag(novaHashtag)) {
-        console.log(`A hashtag '${novaHashtag}' já existe nesta postagem.`);
-    } else {
-        this._hashtags.push(novaHashtag);
-        console.log(`Hashtag '${novaHashtag}' adicionada à postagem.`);
+    get hashtags(): string[]{
+        return this._hashtags
     }
 
-   }
-
-   existeHashtag(hashtag: string): boolean {
-    return this._hashtags.includes(hashtag)
-   }
-
-   decrementarVisualizacoes(): void {
-    if (this._visualizacoesRestantes > 0) {
-        this._visualizacoesRestantes--;
-        console.log('Visualização decrementada com sucesso.');
-    } else {
-        console.log('Visualizações já esgotadas.');
-    }
-}
-}
-
-export class repositorioDePerfis {
-    private _perfis: Perfil[] = [];
-
-    adicionarPerfil(novoPerfil: Perfil): void {
-        this._perfis.push(novoPerfil);
-        //console.log('Novo perfil adicionado com sucesso.');
+    get visualizacoesRestantes(): number{
+        return this._visualizacoesRestantes
     }
 
-    consultar(id?: number, nome?: string, email?: string): Perfil | null {
-        if (!id && !nome && !email) {
-            return null; 
+    adicionarHashtag(novaHashtag: string): void {
+        if (this.existeHashtag(novaHashtag)) {
+            console.log(`A hashtag '${novaHashtag}' já existe nesta postagem.`);
+        } else {
+            this._hashtags.push(novaHashtag);
+            console.log(`Hashtag '${novaHashtag}' adicionada à postagem.`);
         }
+    }
 
-        const perfilEncontrado = this._perfis.find((perfil) => {
-            return (!id || perfil.id === id) && (!nome || perfil.nome === nome) && (!email || perfil.email === email);
-        });
+    existeHashtag(hashtag: string): boolean {
+        return this._hashtags.includes(hashtag)
+    }
 
-        return perfilEncontrado || null; 
+    decrementarVisualizacoes(): void {
+        if (this._visualizacoesRestantes > 0) {
+            this._visualizacoesRestantes--;
+                console.log('Visualização decrementada com sucesso.');
+        } else {
+            console.log('Visualizações já esgotadas.');
+        }
     }
 }

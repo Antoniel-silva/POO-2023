@@ -1,16 +1,21 @@
+import { Postagem } from './Postagem';
+import { RepositorioDePostagens } from './RepositorioDePostagens';
+import { RepositorioDePerfis } from './RepositorioDePerfis';
+import { Perfil } from './Perfil';
+import { PostagemAvancada } from './PostagemAvancada';
+
 export class RedeSocial {
-    private _repositorioDePostagens: repositorioDePostagens
-    private _repositorioDePerfis: repositorioDePerfis;
+    private _repositorioDePostagens: RepositorioDePostagens;
+    private _repositorioDePerfis: RepositorioDePerfis;
     
 
     constructor() {
-        this._repositorioDePostagens = new repositorioDePostagens();
-        this._repositorioDePerfis = new repositorioDePerfis();
+        this._repositorioDePostagens = new RepositorioDePostagens();
+        this._repositorioDePerfis = new RepositorioDePerfis();
     }
 
     
-    incluirPerfil(perfil: Perfil): void {
-        
+    incluirPerfil(perfil: Perfil): void {        
         if (!perfil.id || !perfil.nome || !perfil.email) {
             console.error('Todos os atributos do perfil devem ser preenchidos.');
             return;
@@ -21,7 +26,6 @@ export class RedeSocial {
             return;
         }
 
-        
         this._repositorioDePerfis.adicionarPerfil(perfil);
     }
 
@@ -49,7 +53,6 @@ export class RedeSocial {
         return this._repositorioDePostagens.consultar(hashtag, id, texto, perfil);
     }
     
-
     curtir(idPostagem: number): void {
         const postagemEncontrada = this._repositorioDePostagens.consultarPorId(idPostagem);
         
@@ -139,7 +142,6 @@ export class RedeSocial {
         } else {
             console.log("Perfil não encontrado.");
         }
-
     }
 
 

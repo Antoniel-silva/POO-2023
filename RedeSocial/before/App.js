@@ -62,10 +62,10 @@ function getUserInput(prompt) {
                     console.log("");
                     console.log("Digite uma opção:");
                     console.log("");
-                    console.log('1 - Incluir Perfil       2 - Consultar Perfil      3 - Incluir Postagem\n' +
-                        '4 - Consultar posatgem       5 - Curtir postagem               6 - Descurtir postagem\n' +
-                        '7 - Decrementar Visualizações 8 - Exibir postagens por perfil 9 - Exibir postagens por hashtag\n' +
-                        '10 - Seguir perfil 11 - Deixar de seguir perfil 12 - Listar seguidores    13 - Exibir postagem dos seguidores\n' +
+                    console.log('1 - Incluir Perfil\n2 - Consultar Perfil\n3 - Incluir Postagem\n' +
+                        '4 - Consultar posatgem\n5 - Curtir postagem\n6 - Descurtir postagem\n' +
+                        '7 - Decrementar Visualizações\n8 - Exibir postagens por perfil\n9 - Exibir postagens por hashtag\n' +
+                        '10 - Seguir perfil\n11 - Deixar de seguir perfil\n12 - Listar seguidores\n13 - Exibir postagem dos seguidores\n' +
                         '0 - Sair\n');
                     return [4 /*yield*/, getUserInput('Opção: ')];
                 case 1:

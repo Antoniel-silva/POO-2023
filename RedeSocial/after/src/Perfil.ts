@@ -1,36 +1,36 @@
+import { Postagem } from './Postagem';
+
 export class Perfil {
-    private _id: number
-    private _nome: string
-    private _email: string
-    private _postagens: Postagem[] = []
+    private _id: number;
+    private _nome: string;
+    private _email: string;
+    private _postagens: Postagem[] = [];
     private _seguidores: Perfil[] = [];
     private _seguindo: Perfil[] = [];
 
-
-
-    constructor(id: number, nome: string, email: string, postagens: Postagem[], seguidores: Perfil[], seguindo: Perfil[]){
-        this._id = id
-        this._nome = nome
-        this._email = email
-        this._postagens = postagens
-        this._seguidores = seguidores
-        this._seguindo = seguindo
+    constructor(id: number, nome: string, email: string, postagens: Postagem[], seguidores: Perfil[], seguindo: Perfil[]) {
+        this._id = id;
+        this._nome = nome;
+        this._email = email;
+        this._postagens = postagens;
+        this._seguidores = seguidores;
+        this._seguindo = seguindo;
     }
 
     get id(): number{
-        return this._id
+        return this._id;
     }
 
     get nome(): string{
-        return this._nome
+        return this._nome;
     }
 
     get email(): string{
-        return this._email
+        return this._email;
     }
 
     get postagens(): Postagem[] {
-        return this._postagens
+        return this._postagens;
     }
 
     adicionarPostagem(postagem: Postagem): void {
@@ -54,7 +54,6 @@ export class Perfil {
         }
     }
 
-
     deixarDeSeguir(perfil: Perfil): void {
         const indexSeguido = this._seguindo.indexOf(perfil);
         const indexSeguidor = perfil._seguidores.indexOf(this);
@@ -72,7 +71,6 @@ export class Perfil {
         return this._seguidores;
     }
 
-
     listarPostagensSeguidor(): Postagem[] {
         const postagensSeguidor: Postagem[] = [];
 
@@ -81,6 +79,5 @@ export class Perfil {
         });
 
         return postagensSeguidor;
-    }
-  
+    } 
 }
