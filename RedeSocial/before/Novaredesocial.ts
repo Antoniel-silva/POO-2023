@@ -1,4 +1,3 @@
-
 export class Perfil {
     private _id: number
     private _nome: string
@@ -86,7 +85,7 @@ export class Perfil {
   
 }
 
-export class Postagem{
+export class Postagem {
     private _id: number
     private _texto: string
     private _curtidas: number
